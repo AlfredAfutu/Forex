@@ -1,0 +1,84 @@
+ext.deps = [:]
+def versions = [:]
+versions.kotlin = "1.3.50"
+versions.android_gradle_plugin = "3.5.1"
+versions.jacoco = "0.15.0"
+versions.constraintlayout = "1.1.3"
+versions.recyclerview = "1.0.0"
+versions.recyclerview_animator = "3.0.0"
+versions.rxrelay = "2.1.0"
+versions.rxandroid = "2.1.1"
+versions.rxjava = "2.2.8"
+versions.rxbinding = "2.2.0"
+versions.dagger = "2.24"
+versions.appcompat = "1.0.2"
+versions.androidx = "2.1.0-rc01"
+versions.fragment = "1.1.0-rc01"
+versions.leakcanary = "2.0-beta-2"
+versions.junit5 = "5.5.0"
+versions.retrofit = "2.5.0"
+versions.okhttp = "3.14.1"
+versions.mockito_kotlin = "2.1.0"
+versions.livedata_testing = "1.1.0"
+versions.test_runner = "1.2.0"
+versions.espresso = "3.2.0"
+versions.android_material = "1.0.0"
+versions.android_design = "28.0.0"
+ext.versions = versions
+
+def deps = [:]
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.jacoco_plugin = "com.vanniktech:gradle-android-junit-jacoco-plugin:$versions.jacoco"
+deps.recyclerview_animator = "jp.wasabeef:recyclerview-animators:$versions.recyclerview_animator"
+deps.leakcanary = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+deps.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+deps.retrofit_adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+deps.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+deps.android_design = "com.android.support:design:$versions.android_design"
+deps.android_material = "com.google.android.material:material:$versions.android_matrial"
+
+def rx = [:]
+rx.relay = "com.jakewharton.rxrelay2:rxrelay:$versions.rxrelay"
+rx.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rejava"
+rx.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+rx.binding = "com.jakewharton.rxbinding2:rxbinding:$versions.rxbinding"
+rx.binding_recyclerview = "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$versions.rxbinding"
+deps.rx = rx
+
+def junit5 = [:]
+junit5.api = "org.junit.jupiter:junit-jupiter-api:$versions.junit5"
+junit5.engine = "org.junit.jupiter:junit-jupiter-engine:$versions.junit5"
+junit5.params = "org.junit.jupiter:junit-jupiter-params:$versions.junit5"
+deps.junit5 = junit5
+
+def testing = [:]
+testing.mockito_kotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito_kotlin"
+testing.livedata = "com.jraska.livedata:testing-ktx:$versions.livedata_testing"
+testing.runner = "androidx.test:runner:$versions.test_runner"
+testing.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
+deps.testing = testing
+
+def androidx = [:]
+androidx.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+androidx.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+androidx.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
+androidx.core_ktx = "androidx.core:core-ktx:$versions.appcompat"
+androidx.lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:$versions.androidx"
+androidx.lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.androidx"
+androidx.fragment = "androidx.fragment:fragment-ktx:$versions.fragment"
+androidx.testing = "androidx.arch.core:core-testing:$versions.androidx"
+deps.androidx = androidx
+
+def dagger = [:]
+dagger.dagger = "com.google.dagger:dagger:$versions.dagger"
+dagger.dagger_android = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.dagger_compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.dagger_processor = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+ext.deps = deps

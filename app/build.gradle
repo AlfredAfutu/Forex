@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -21,17 +20,73 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation deps.android_design
+    implementation deps.android_material
+
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.lifecycle_extensions
+    implementation deps.androidx.lifecycle_livedata
+    implementation deps.androidx.constraint_layout
+    implementation deps.androidx.recyclerview
+    implementation deps.androidx.fragment
+    implementation deps.recyclerview_animator
+
+    implementation deps.dagger.dagger
+    implementation deps.dagger.dagger_android
+    kapt deps.dagger.dagger_compiler
+    kapt deps.dagger.dagger_processor
+
+    implementation deps.retrofit
+    implementation deps.retrofit_adapter
+    implementation deps.okhttp
+
+    implementation deps.rx.rxandroid
+    implementation deps.rx.rxjava2
+    implementation deps.rx.relay
+    implementation deps.rx.binding
+    implementation deps.rx.binding_recyclerview
+
+    androidTestImplementation deps.testing.runner
+    androidTestImplementation deps.testing.espresso
+
+    testImplementation deps.junit5.api
+    testRuntimeOnly deps.junit5.engine
+    testImplementation deps.junit5.params
+
+    testImplementation deps.androidx.testing
+    testImplementation deps.testing.mockito_kotlin
+    testImplementation deps.testing.livedata
+
+    debugImplementation deps.leakcanary
 }
