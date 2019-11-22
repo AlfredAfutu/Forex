@@ -24,6 +24,7 @@ versions.test_runner = "1.2.0"
 versions.espresso = "3.2.0"
 versions.android_material = "1.0.0"
 versions.android_design = "28.0.0"
+versions.countryflag = "v1.4-beta01"
 ext.versions = versions
 
 def deps = [:]
@@ -80,5 +81,9 @@ def kotlin = [:]
 kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 deps.kotlin = kotlin
+
+def countryflag = [:]
+countryflag.lib = "com.github.blongho:worldCountryData:$versions.countryflag"
+deps.countryflag = countryflag
 
 ext.deps = deps

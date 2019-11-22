@@ -1,4 +1,4 @@
-package com.revolut.currencies.ui.main
+package com.revolut.currencies.ui.currencies
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.revolut.currencies.R
 
-class MainFragment : Fragment() {
+class CurrenciesFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = CurrenciesFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: CurrenciesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(CurrenciesViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

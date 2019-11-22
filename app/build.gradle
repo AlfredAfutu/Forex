@@ -88,5 +88,7 @@ dependencies {
     testImplementation deps.testing.mockito_kotlin
     testImplementation deps.testing.livedata
 
+    implementation deps.countryflag.lib
+
     debugImplementation deps.leakcanary
 }
