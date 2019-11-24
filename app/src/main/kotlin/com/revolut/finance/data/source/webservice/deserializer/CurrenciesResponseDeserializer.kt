@@ -11,8 +11,8 @@ class CurrenciesResponseDeserializer : JsonDeserializer<CurrenciesResponse> {
 
     override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): CurrenciesResponse? {
         val jsonObject = json?.asJsonObject ?: return null
-        val entries = jsonObject.entrySet()
-        val rates = entries?.map { RateResponse(it.key, it.value.asDouble) }
+        val ratesJson = jsonObject.get("rates")
+        val rates = ratesJson.asJsonObject.entrySet().map { RateResponse(it.key, it.value.asDouble) }
 
         return CurrenciesResponse(jsonObject.get("base").asString, jsonObject.get("date").asString, rates)
     }
