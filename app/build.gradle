@@ -70,6 +70,9 @@ dependencies {
     implementation deps.retrofit
     implementation deps.retrofit_adapter
     implementation deps.okhttp
+    implementation deps.retrofit_gson_converter
+    implementation deps.gson
+    implementation deps.okhttp_logging_interceptor
 
     implementation deps.rx.rxandroid
     implementation deps.rx.rxjava2
