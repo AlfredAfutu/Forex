@@ -79,6 +79,7 @@ dependencies {
     implementation deps.rx.relay
     implementation deps.rx.binding
     implementation deps.rx.binding_recyclerview
+    implementation deps.circular_imageview
 
     androidTestImplementation deps.testing.runner
     androidTestImplementation deps.testing.espresso

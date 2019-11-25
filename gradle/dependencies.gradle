@@ -40,6 +40,7 @@ deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$ver
 deps.android_design = "com.android.support:design:$versions.android_design"
 deps.android_material = "com.google.android.material:material:$versions.android_matrial"
 deps.gson = "com.google.code.gson:gson:2.8.5"
+deps.circular_imageview = "de.hdodenhof:circleimageview:3.0.1"
 
 def rx = [:]
 rx.relay = "com.jakewharton.rxrelay2:rxrelay:$versions.rxrelay"
