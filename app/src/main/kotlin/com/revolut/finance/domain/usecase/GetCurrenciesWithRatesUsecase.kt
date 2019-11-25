@@ -19,7 +19,7 @@ class GetCurrenciesWithRatesUsecase(
     override fun invoke(): Observable<UIResult<CurrenciesViewData>> {
         return Observable.interval(1, TimeUnit.SECONDS)
             .flatMapSingle { repository.getCurrencies() }
-            .distinctUntilChanged()
+            .distinct()
             .subscribeOn(Schedulers.io())
             .map { mapResult(it) }
     }

@@ -10,7 +10,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class CurrenciesViewModel @Inject constructor(private val getCurrenciesWithRatesInteractor: IGetCurrenciesWithRatesUsecase) : ViewModel() {
+class CurrenciesViewModel @Inject constructor(
+    private val getCurrenciesWithRatesInteractor: IGetCurrenciesWithRatesUsecase
+) : ViewModel() {
 
     private val currenciesWithRates = MutableLiveData<CurrenciesViewData>()
 
@@ -41,7 +43,7 @@ class CurrenciesViewModel @Inject constructor(private val getCurrenciesWithRates
 
     private fun handleFetchCurrenciesResult(result: UIResult<CurrenciesViewData>) {
         when (result) {
-            is UIResult.Success -> println("Successful fetch: ${result.data}")
+            is UIResult.Success -> currenciesWithRates.value = result.data
             is UIResult.Error -> println("Error in fetch")
         }
     }
