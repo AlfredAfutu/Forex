@@ -10,7 +10,7 @@ versions.rxrelay = "2.1.0"
 versions.rxandroid = "2.1.1"
 versions.rxjava = "2.2.8"
 versions.rxbinding = "2.2.0"
-versions.dagger = "2.24"
+versions.dagger = "2.25.4"
 versions.appcompat = "1.0.2"
 versions.androidx = "2.1.0-rc01"
 versions.fragment = "1.1.0-rc01"
@@ -25,6 +25,7 @@ versions.espresso = "3.2.0"
 versions.android_material = "1.0.0"
 versions.android_design = "28.0.0"
 versions.countryflag = "v1.4-beta01"
+versions.gradle_lint = "14.2.1"
 ext.versions = versions
 
 def deps = [:]
@@ -72,6 +73,7 @@ androidx.lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:$versio
 androidx.lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.androidx"
 androidx.fragment = "androidx.fragment:fragment-ktx:$versions.fragment"
 androidx.testing = "androidx.arch.core:core-testing:$versions.androidx"
+androidx.recyclerview_selection = "androidx.recyclerview:recyclerview-selection:$versions.recyclerview"
 deps.androidx = androidx
 
 def dagger = [:]
@@ -89,5 +91,9 @@ deps.kotlin = kotlin
 def countryflag = [:]
 countryflag.lib = "com.github.blongho:worldCountryData:$versions.countryflag"
 deps.countryflag = countryflag
+
+def gradle= [:]
+gradle.lint = "com.netflix.nebula:gradle-lint-plugin:$versions.gradle_lint"
+deps.gradle = gradle
 
 ext.deps = deps

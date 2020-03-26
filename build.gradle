@@ -12,8 +12,11 @@ buildscript {
         classpath deps.android_gradle_plugin
         classpath deps.kotlin.plugin
         classpath deps.jacoco_plugin
+        classpath deps.gradle.lint
     }
 }
+
+apply plugin: 'nebula.lint'
 
 allprojects {
     repositories {
@@ -21,6 +24,8 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
     }
+    gradleLint.rules = ['all-dependency']
+    gradleLint.rules += 'unused-dependency'
 }
 
 task clean(type: Delete) {
