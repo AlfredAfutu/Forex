@@ -95,7 +95,6 @@ class CurrenciesViewModel @Inject constructor(
                 .doOnNext { fetchCurrenciesDisposable.clear() }
                 .map { it.toString() }
                 .map { UpdateRatesData(it, currency) }
-                .subscribeOn(AndroidSchedulers.mainThread())
                 .flatMap { updateRates(it) }
                 .doFinally { fetchCurrencies() }
                 .observeOn(AndroidSchedulers.mainThread())
