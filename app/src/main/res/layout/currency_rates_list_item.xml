@@ -4,21 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:layout_marginBottom="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/flag"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/amount_hint"
+        android:inputType="numberDecimal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/co" />
+        tools:text="3.23489"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/displayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:focusableInTouchMode="true"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/code"
+        app:layout_constraintTop_toBottomOf="@id/code"
+        tools:text="US Dollar" />
 
     <TextView
         android:id="@+id/code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
         android:textAllCaps="true"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -27,26 +48,12 @@
         app:layout_constraintTop_toTopOf="@id/flag"
         tools:text="USD" />
 
-    <TextView
-        android:id="@+id/displayName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="16dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@id/code"
-        app:layout_constraintTop_toBottomOf="@id/code"
-        tools:text="US Dollar" />
-
-    <EditText
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/flag"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="3.23489" />
-
+        tools:src="@drawable/co" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

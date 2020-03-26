@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Rates</string>
-    <string name="network_error_message">We cannot reach our servers</string>
+    <string name="app_name">Forex</string>
+    <string name="network_error_message">Sorry, we could not reach our servers</string>
     <string name="bad_response_message">No rates available at the moment</string>
+    <string name="rate_update_error_message">Sorry we could not update the rates</string>
+    <string name="no_results_available_message">No results available \n Click to retry</string>
+    <string name="amount_hint">0</string>
+    <string name="move_currency_to_top_error_message">Sorry, we could not fulfil your request. Please try again</string>
+    <string name="general_error_message">We encountered an issue. Please try again</string>
 </resources>
