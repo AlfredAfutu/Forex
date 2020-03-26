@@ -2,7 +2,6 @@ package com.revolut.finance.dagger
 
 import com.revolut.finance.RevolutApplication
 import dagger.Component
-import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
