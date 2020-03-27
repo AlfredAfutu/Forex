@@ -132,7 +132,7 @@ internal class CurrenciesViewModelTest : BaseTest() {
 
         viewModel.observeTopCurrencyAmountChangeEvents(textChangeObservable, currency)
 
-        verify(getCurrenciesWithRates)(Unit)
+        verify(getCurrenciesWithRates, times(2))(Unit)
     }
 
     @Test
@@ -160,6 +160,10 @@ internal class CurrenciesViewModelTest : BaseTest() {
 
         whenever(getCurrenciesWithRates(Unit)).thenReturn(Observable.just(UIResult.Success(viewData)))
 
+        viewModel.fetchCurrencies()
+
+        triggerActions()
+
         viewModel.observeTopCurrencyAmountChangeEvents(textChangeObservable, currency)
 
         triggerActions()
@@ -177,11 +181,14 @@ internal class CurrenciesViewModelTest : BaseTest() {
         whenever(getCurrenciesWithRates(Unit)).thenReturn(Observable.just(UIResult.Success(viewData)))
         whenever(updateRates(any())).thenReturn(Observable.just(UIResult.Error(R.string.rate_update_error_message)))
 
+        viewModel.fetchCurrencies()
+
+        triggerActions()
+
         viewModel.observeTopCurrencyAmountChangeEvents(textChangeObservable, currency)
 
         triggerActions()
 
-        verify(getCurrenciesWithRates, times(2))(Unit)
         viewModel.getErrorMessage().test().assertValue(R.string.rate_update_error_message)
     }
 
@@ -211,8 +218,13 @@ internal class CurrenciesViewModelTest : BaseTest() {
         val currency = "EUR"
         val viewData = CurrenciesViewData(rates = listOf(RateViewData("EUR", "eu", "34.24", "Euro")))
 
+
         whenever(getCurrenciesWithRates(Unit)).thenReturn(Observable.just(UIResult.Success(viewData)))
         whenever(updateRates(any())).thenReturn(Observable.just(UIResult.Success(viewData.rates)))
+
+        viewModel.fetchCurrencies()
+
+        triggerActions()
 
         viewModel.observeTopCurrencyAmountChangeEvents(textChangeObservable, currency)
 
